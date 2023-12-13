@@ -1,0 +1,323 @@
+@font-face { font-family: Channel; src: url('channel.ttf'); }
+@font-face { font-family: Fashionista; src: url('fashionista.ttf'); }
+@font-face { font-family: Ryan; src: url('ryan.ttf'); }
+@font-face { font-family: Swenson; src: url('swenson.ttf'); }
+
+@font-face { font-family: ComfortaaThin; src: url('Comfortaa_Thin.ttf'); }
+@font-face { font-family: Comfortaa; src: url('comfortaa.ttf'); }
+@font-face { font-family: ComfortaaBold; src: url('Comfortaa_Bold.ttf'); }
+@font-face { font-family: BonvenoCF; src: url('bonvenocf.otf'); }
+@font-face { font-family: DeliciousRoman; src: url('delicious-Roman.otf'); }
+
+body {
+background: url("bg-head.png") repeat-x;
+font-family: 'Lucida Grande', BonvenoCF, "Trebuchet MS", Helvetica, sans-serif;
+margin: 0;
+font-size: 1em;
+}
+
+a {text-decoration: none;}
+
+abbr {cursor:help; border:none;}
+
+#page {
+margin: auto;
+width: 900px;
+}
+
+header {
+color: white;
+font-family: Swenson, sans-serif;
+font-size: 2.3em;
+height: 59px;
+padding: 10px 100px;
+-ms-transition: color 1s ease-in-out;
+-webkit-transition: color 1s ease-in-out;
+-moz-transition: color 1s ease-in-out;
+-o-transition: color 1s ease-in-out;
+transition: color 1s ease-in-out;
+}
+
+header:hover {
+color: #4D90FF;
+}
+
+nav {
+border-right: 1px solid #ebebeb;
+float: left;
+font-size: 1em;
+padding: 20px 0px 50px 0px;
+margin-right: 15px;
+}
+
+nav ul {
+list-style-type: none;
+}
+
+nav ul li {
+width: 140px;
+padding: 15px 30px;
+border-top: 1px solid #F6F6F6;
+}
+
+nav ul li:last-of-type {
+border-bottom: 1px solid #F6F6F6;
+}
+
+nav ul li:hover {
+background: #F6F6F6;
+color: #76A915;
+}
+
+nav ul li a {
+display:block;
+color: #727272;
+font-family: Comfortaa, BonvenoCF, "Trebuchet MS", Helvetica, sans-serif;
+text-decoration: none;
+text-transform: uppercase;
+vertical-align: middle;
+}
+
+nav .current {
+color: #76A915;
+}
+
+nav ul li a img {
+width: 20px;
+margin-right: 20px;
+border: none;
+vertical-align: middle;
+}
+
+#corps {
+color: #303942;
+font-size: 0.8em;
+margin-left: 75px;
+padding: 10px;
+overflow: hidden;
+width:620px;
+}
+
+#tableSite, #tableComments {
+border-spacing:0px;
+-ms-transition:all 1s ease-in-out;
+-webkit-transition:all 1s ease-in-out;
+-moz-transition:all 1s ease-in-out;
+-o-transition:all 1s ease-in-out;
+transition:all 1s ease-in-out;	
+}
+
+#tableSite td, #tableComments td {
+vertical-align: top;
+}
+
+#tableSite .client:after {content: "Client :";}
+#tableSite .periode:after {content: "Période de création :";}
+#tableSite .acces:after {content: "Accès au site :";}
+#tableSite .description:after {content: "Description :";}
+
+#tableSite h3.website:before {
+content: "Projet "open-quote;
+}
+
+#tableSite h3.website:after {
+content: close-quote;
+}
+
+#tableSite .boutons {
+float: right;
+font-size: 0.9em;
+}
+
+#tableSite .boutons img {
+margin-right: 10px;
+position: relative;
+top: 4px;
+}
+
+#tableComments {
+border-spacing:0px 20px;
+}
+
+#tableComments .info {
+background: url('arrowComment.jpg') right top no-repeat;
+text-align:center;
+padding:10px 10px;
+width:70px;
+}
+
+#tableComments .comment {
+background-color: #EDEDED;
+border-radius: 0px; /* Arrondir ou pas ? */
+color: black;
+font-size: 1em;
+padding: 10px 10px;
+}
+
+#tableComments time {
+font-size: 0.9em;
+}
+
+#fiche, #comments {
+display: none;
+}
+
+#fiche:target ~ #tableSite {
+position:relative;
+right:0px;
+}
+
+#comments:target ~ #tableSite {
+position:relative;
+right:685px;
+}
+
+#tableSite td form, #tableComments {
+font-size: 0.9em;
+}
+
+.linktoComments {
+color: #303942;
+}
+
+#tableSite ul a {
+color: #4179D6;
+}
+
+#tableSite ul a:hover {
+text-decoration: underline;
+}
+
+.screenshot {
+border:1px solid #363636;
+cursor: url('cursorZoom.png'), pointer;
+float: left;
+margin: 0px 30px 5px 0px;
+width:350px;
+}
+
+#corps h3 {
+font-family: Comfortaa, BonvenoCF, "Trebuchet MS", Helvetica, sans-serif;
+}
+
+input[type="text"], textarea {
+border: 1px solid #D1D0CE;
+border-radius: 0px;
+padding: 3px 5px;
+resize: none;
+width: 500px;
+outline: none;
+}
+
+#commentForm input[type="text"], #commentForm input[type="submit"], #commentForm textarea {
+font-size: 1em;
+}
+
+#contactForm input[type="text"], #contactForm input[type="submit"], #contactForm textarea {
+font-size: 0.9em;
+}
+
+input[type="text"]:focus, textarea:focus, input[type="submit"]:not(.success):not(.failed):active {
+border: 1px solid #4179D6; /* #4179D6 (bleu foncé) ou #76A915 (vert foncé) */
+}
+
+#contactForm textarea {
+height: 150px;
+}
+
+input[type="submit"] {
+background: #E0E0E0;
+color: #363636;
+border: 1px solid #D1D0CE;
+padding: 5px 15px;
+border-radius: 4px;
+}
+
+input[type="submit"].success {
+background: #76A915;
+color: white;
+border: 1px solid #577D10;
+}
+
+input[type="submit"].failed {
+background: #CF391C;
+color: white;
+border: 1px solid #701F0F;
+}
+
+#commentForm input[type="text"], #commentForm textarea {
+width: 400px;
+}
+
+#commentForm textarea {
+height: 100px;
+}
+
+#devisForm {
+
+}
+
+#devisForm textarea {
+font-size:.9em;
+width:90%;
+height:200px;
+}
+
+#devisForm input[type="submit"] {
+font-size:.9em;
+}
+
+table {
+border-spacing: 15px;
+padding:0px;
+margin:0px;
+}
+
+.webPreview {
+height: 160px;
+width: 300px;
+border: 2px solid #6E6E6E;
+background-size: cover;
+background-position:center;
+background-repeat:no-repeat;
+padding:0px;
+margin:0px;
+vertical-align:bottom;
+-ms-transition:all .4s linear;
+-webkit-transition:all .4s linear;
+-moz-transition:all .4s linear;
+-o-transition:all .4s linear;
+transition:all .4s linear;	
+}
+
+.webPreview:hover {
+border: 2px solid white;
+-ms-box-shadow:0px 0px 30px 0px #333333;
+-webkit-box-shadow:0px 0px 30px 0px #333333;
+-moz-box-shadow:0px 0px 30px 0px #333333;
+-o-box-shadow:0px 0px 30px 0px #333333;
+box-shadow:0px 0px 30px 0px #333333;
+/*-webkit-transform: scale(1.05);*/
+}
+
+.webPreview a {
+display:block;
+height:100%;
+width:100%;
+}
+
+.webPreview #bandeau {
+background: rgba(0, 0, 0, 0.7);
+color:white;
+padding: 8px 10px;
+margin:0px;
+-ms-transition: background 1s ease-in-out;
+-webkit-transition: background 1s ease-in-out;
+-moz-transition: background 1s ease-in-out;
+-o-transition: background 1s ease-in-out;
+transition: background 1s ease-in-out;
+}
+
+/*.webPreview:hover ~ #bandeau {
+background: rgba(0, 0, 0, 0.8);
+}*/ 								/* Ca marche pas */

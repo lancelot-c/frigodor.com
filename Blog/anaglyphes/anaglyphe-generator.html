@@ -1,0 +1,123 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Générateur d'anaglyphe par Lancelot</title> 
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <style type="text/css"> 
+    canvas {
+    	display: none;
+    }
+    .page {
+        width: 700px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    #result {
+    	width: 100%;
+    }
+    #imgLeft, #imgRight {
+    	height: 160px;
+    	width: 200px;
+    	
+    	//-moz-transition:top 0.4s ease-out;
+		//-webkit-transition:top 0.4s ease-out;
+		//-o-transition:top 0.4s ease-out;
+		transition:width 0.7s ease-out;
+    }
+    #imgLeft.hover, #imgRight.hover {
+    	border: 5px dashed #333;
+    	//width: 100px;
+    }
+    </style> 
+</head> 
+ 
+<body> 
+<div class="page">
+	<div id="result">
+		<img style="" id="imgCanvas" />
+		<canvas></canvas> 
+    </div>
+    
+    <img src="" id="imgLeft" />
+    <img src="" id="imgRight" style="" />
+    
+
+    
+</div> 
+ 
+<script type="text/javascript">
+var imgCanvas = document.getElementById('imgCanvas');
+var imgLeft = document.getElementById('imgLeft');
+var imgRight = document.getElementById('imgRight');
+
+function make() {
+		var w = imgLeft.width*2.5;
+        var h = imgLeft.height*2.5;
+    	var canvas = document.getElementsByTagName('canvas')[0];
+        
+            //Left image in temporary canvas
+            var canvasLeft = document.createElement('canvas');
+            canvasLeft.width = w;
+            canvasLeft.height = h;
+            var ctxLeft = canvasLeft.getContext('2d');
+            ctxLeft.drawImage(imgLeft, 0, 0, w, h);
+            var dataLeft = ctxLeft.getImageData(0,0, w, h);
+            
+            //Right image in result canvas
+            canvas.width = w;
+            canvas.height = h;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(imgRight, 0, 0, w, h);
+            var data = ctx.getImageData(0,0, w, h);
+            
+            for (var i=0,l=dataLeft.data.length/4; i<l; i++) {
+                data.data[i * 4 + 0] = dataLeft.data[i * 4 + 0];
+            }
+            ctx.putImageData(data, 0, 0);
+            
+            imgCanvas.src = canvas.toDataURL("image/png".value);
+}
+
+
+for(i=0 ; i <= 1 ;i++)
+{
+	var image = (i)?imgLeft:imgRight;
+	
+	image.onload = make;
+	image.ondragover = function () { this.className = 'hover'; return false; };
+	image.ondragleave = function () { this.className = ''; return false; };
+	image.ondragend = function () { this.className = ''; return false; };
+}
+
+	imgLeft.ondrop = function (e) {
+	  this.className = '';
+	  e.preventDefault();
+	 
+	  var file = e.dataTransfer.files[0],
+	      reader = new FileReader();
+	  reader.onload = function (event) {
+	    imgLeft.src = event.target.result;
+	  };
+	  reader.readAsDataURL(file);
+	  
+	  return false;
+	};
+	
+	imgRight.ondrop = function (e) {
+	  this.className = '';
+	  e.preventDefault();
+	 
+	  var file = e.dataTransfer.files[0],
+	      reader = new FileReader();
+	  reader.onload = function (event) {
+	    imgRight.src = event.target.result;
+	  };
+	  reader.readAsDataURL(file);
+	  
+	  return false;
+	};
+
+imgLeft.src = 'left.jpg';
+imgRight.src = 'right.jpg';
+</script> 
+</html></body>
